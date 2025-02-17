@@ -11,7 +11,7 @@ class TodoModel extends Todo {
     return TodoModel(
       id: json['id'] as int,
       title: json['title'] as String,
-      isChecked: json['isChecked'] as bool,
+      isChecked: json['is_checked'] as bool,
     );
   }
 

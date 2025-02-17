@@ -30,6 +30,9 @@ class TodoRepositoryImpl implements TodoRepository {
   Future<Either<ServerException, List<Todo>>> getTodos() {
     return run(() async {
       final todos = await _remoteDataSource.getTodos();
+      if (todos.isEmpty) {
+        return left(ServerException(message: 'Tidak ada data todo'));
+      }
       return right(todos);
     });
   }
@@ -49,6 +52,7 @@ class TodoRepositoryImpl implements TodoRepository {
     try {
       return await fn();
     } on ServerException catch (e) {
+      print("repo");
       return left(e);
     }
   }

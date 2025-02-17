@@ -1,7 +1,7 @@
 class Todo {
   final int id;
   final String title;
-  final bool isChecked;
+   bool isChecked;
 
   Todo({
     required this.id,

@@ -8,7 +8,11 @@ class TodoInitial extends TodoState {}
 class LoadingState extends TodoState {}
 
 // State untuk menandakan success
-class SuccessState extends TodoState {}
+class SuccessState extends TodoState {
+  final List<Todo> data; // ✅ Pastikan ada data
+  SuccessState({required this.data});
+}
+
 
 // State untuk menandakan error
 class ErrorState extends TodoState {

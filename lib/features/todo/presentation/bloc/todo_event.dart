@@ -15,8 +15,8 @@ final class UpdateTodoEvent extends TodoEvent {
 
   UpdateTodoEvent({
     required this.id,
-    required this.title,
-    required this.isChecked,
+    this.title,
+    this.isChecked,
   });
 }
 

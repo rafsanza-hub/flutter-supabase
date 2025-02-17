@@ -1,6 +1,6 @@
 part of 'dependencies.dart';
 
-final sl = GetIt.instance;
+GetIt sl=GetIt.instance;
 
 initializeDependencies() async {
   await Supabase.initialize(
@@ -14,11 +14,21 @@ initializeDependencies() async {
   _todo();
 }
 
-_todo(){
-  sl..registerLazySingleton<TodoRemoteDataSource>(()=> TodoRemoteDataSourceImpl(supabaseClient: sl()))
-  ..registerLazySingleton<TodoRepository>(()=> TodoRepositoryImpl(remoteDataSource: sl()))
-  ..registerLazySingleton(()=> AddTodoUsecase(repository: sl()))
-  ..registerLazySingleton(()=> UpdateTodoUsecase(repository: sl()))
-  ..registerLazySingleton(()=> DeleteTodoUsecase(repository: sl()))
-  ..registerLazySingleton(()=> GetTodoUsecase(repository: sl()));
+_todo() {
+  sl
+    ..registerLazySingleton<TodoRemoteDataSource>(
+        () => TodoRemoteDataSourceImpl(supabaseClient: sl()))
+    ..registerLazySingleton<TodoRepository>(
+        () => TodoRepositoryImpl(remoteDataSource: sl()))
+    ..registerLazySingleton(() => AddTodoUsecase(repository: sl()))
+    ..registerLazySingleton(() => UpdateTodoUsecase(repository: sl()))
+    ..registerLazySingleton(() => DeleteTodoUsecase(repository: sl()))
+    ..registerLazySingleton(() => GetTodoUsecase(repository: sl()))
+    ..registerFactory(
+      () => TodoBloc(
+          getTodoUsecase: sl(),
+          addTodoUsecase: sl(),
+          updateTodoUsecase: sl(),
+          deleteTodoUsecase: sl()),
+    );
 }

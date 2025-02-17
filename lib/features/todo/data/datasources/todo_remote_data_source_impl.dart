@@ -29,8 +29,7 @@ class TodoRemoteDataSourceImpl implements TodoRemoteDataSource {
   }
 
   @override
-  Future<void> updateTodo(
-      {required int id, String? title, bool? isChecked}) {
+  Future<void> updateTodo({required int id, String? title, bool? isChecked}) {
     final data = <String, dynamic>{};
     if (title != null) data['title'] = title;
     if (isChecked != null) data['is_checked'] = isChecked;

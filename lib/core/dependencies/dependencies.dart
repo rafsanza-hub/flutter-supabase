@@ -6,6 +6,7 @@ import 'package:flutter_ca2/features/todo/domain/usecases/add_todo_usecase.dart'
 import 'package:flutter_ca2/features/todo/domain/usecases/delete_todo_usecase.dart';
 import 'package:flutter_ca2/features/todo/domain/usecases/get_todo_usecase.dart';
 import 'package:flutter_ca2/features/todo/domain/usecases/update_todo_usecase.dart';
+import 'package:flutter_ca2/features/todo/presentation/bloc/todo_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 

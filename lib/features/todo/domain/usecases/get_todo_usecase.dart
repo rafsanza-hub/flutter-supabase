@@ -9,7 +9,7 @@ class GetTodoUsecase {
   GetTodoUsecase({required TodoRepository repository})
       : _repository = repository;
 
-  Future<Either<ServerException, List<Todo>>> call({required String title}) async {
+  Future<Either<ServerException, List<Todo>>> call() async {
      return _repository.getTodos();
   }
 }
